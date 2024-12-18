@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+header { 
+    background-image: url(https://th.bing.com/th/id/OIP.upKbn1tbxzg-UoeTCxEwUAHaFY?rs=1&pid=ImgDetMain);
+    color: white;
+    padding: 3px;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+nav {
+    margin: 0;
+    padding: 1em;
+    background-color: #ADD8E6; /* Azul claro */
+    text-align: center;
+    width: 100%;
+    top: 3.5em; /* Ajuste conforme necessário para alinhar abaixo do header */
+    z-index: 999;
+}
+nav a {
+    color: black;
+    margin: 0 1em;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+.content {
+    padding: 6em 2em 2em; /* Ajuste o padding superior para evitar sobreposição */
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.service {
+    margin-bottom: 1.5em;
+}
+.service h2 {
+    font-size: 1.8em;
+    color: #00008B; /* Azul escuro */
+    border-bottom: 2px solid #ADD8E6; /* Azul claro */
+    padding-bottom: 0.5em;
+}
+.service h5 {
+    font-size: 1.4em;
+    color: #333333;
+    margin-top: 1em;
+}
+.service img {
+    width: 70%;
+    height: auto;
+    margin-top: 1em;
+    border-radius: 5px;
+}
+.service button {
+    background-color: #00008B; /* Azul escuro */
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 1em;
+}
+.service button:hover {
+    background-color: #ADD8E6; /* Azul claro */
+    color: black;
+}
+.call-to-action {
+    background-color: #00008B; /* Azul escuro */
+    color: white;
+    padding: 1.5em;
+    text-align: center;
+    margin-top: 2em;
+    border-radius: 5px;
+}
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #ADD8E6; /* Azul claro */
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#appointmentForm {
+    display: none;
+    background-color: #ffffff;
+    padding: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 2em;
+}
+/* Botão fixo à esquerda */
+.scroll-to-top {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #00008B; /* Azul escuro */
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 1001;
+}
+.scroll-to-top:hover {
+    background-color: #ADD8E6; /* Azul claro */
+    color: black;
+}

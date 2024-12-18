@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica SPA Terapêutica</title>
+    <link rel="stylesheet" href="stylesmarcar.css">
+    
+    <script>
+        function sendWhatsAppMessage() {
+            var serviceType = document.getElementById("serviceType").value;
+            var name = document.getElementById("name").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+            var healthIssues = document.getElementById("healthIssues").value;
+            var medication = document.getElementById("medication").value;
+
+            var message = `Serviço: ${serviceType}\nNome: ${name}\nData: ${date}\nHorário: ${time}\nProblemas de saúde: ${healthIssues}\nMedicamentos: ${medication}`;
+
+            var whatsappUrl = `https://api.whatsapp.com/send?phone=5531986608456&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function updatePrice() {
+            var service = document.getElementById('serviceType').value;
+            var price = 0;
+            
+            if (service === 'Aplicação de Medicamentos') {
+                price = 100;
+            } else if (service === 'SPA dos Pés') {
+                price = 80;
+            } else if (service === 'Massoterapias') {
+                price = 150;
+            } else if (service === 'Quiropraxia') {
+                price = 200;
+            }
+            
+            if (service === 'Cuidados com Idosos e Crianças') {
+                document.getElementById('cuidadosOptions').style.display = 'block';
+                var careHours = document.getElementById('careHours');
+                if (careHours) {
+                    price = parseInt(careHours.value);
+                }
+            } else {
+                document.getElementById('cuidadosOptions').style.display = 'none';
+            }
+            
+            document.getElementById('totalPrice').value = 'R$' + price;
+        }
+    </script>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <img src="../IMAGENS/profissional.jpg" width="150" height="150" alt="Raíssa Sampaio"/>
+        <h1>Raíssa Sampaio</h1>
+        <p>Seu bem-estar em boas mãos!</p>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <b><a href="index.html">Voltar</a></b>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Informações Profissionais -->
+        <div class="info-container">
+            <h1><strong>Sobre Mim</strong></h1>
+            <p>Bem-vindo ao meu espaço profissional!</p>
+            <p>Sou <strong>Raíssa Sampaio</strong>, técnica de enfermagem e terapeuta qualificada com uma especialização em terapias complementares da saúde. Com base em Belo Horizonte/MG, minha abordagem é centrada na combinação de cuidados práticos e uma atenção personalizada ao bem-estar dos meus pacientes.</p>
+            <p>Como técnica de enfermagem, meu foco é proporcionar cuidados de alta qualidade com uma abordagem humanizada, sempre atendendo às necessidades individuais de cada paciente.</p>
+            <p>Minha formação como terapeuta me permite aplicar uma ampla gama de técnicas para promover a saúde mental e emocional, integrando terapias complementares da saúde que apoiam tanto a prevenção quanto o tratamento de diversas condições.</p>
+            <p>Estou aqui para oferecer um atendimento integrado que combina experiência prática com um enfoque personalizado e acolhedor. Se você busca um profissional qualificado para auxiliar em sua jornada de saúde e bem-estar, estou à disposição para ajudar.</p>
+            <p class="contact">Para mais informações entre em contato comigo e agende sua consulta.</p>
+            <p>Gostou?</p>
+            <p>Compartilhe em suas redes sociais clicando abaixo</p>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.seusite.com.br" target="_blank" class="facebook" title="Compartilhar no Facebook">Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://www.seusite.com.br" target="_blank" class="twitter" title="Compartilhar no Twitter">Twitter</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.seusite.com.br" target="_blank" class="linkedin" title="Compartilhar no LinkedIn">LinkedIn</a>
+                <a href="https://api.whatsapp.com/send?text=Confira este site: https://www.seusite.com.br" target="_blank" class="whatsapp" title="Compartilhar no WhatsApp">WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Formulário de Marcação -->
+        <div class="form-container">
+            <form id="serviceForm" onsubmit="sendWhatsAppMessage(); return false;">
+                <label for="serviceType">Serviço:</label>
+                <select id="serviceType" name="serviceType" onchange="updatePrice()" required>
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="Home Care">Home Care</option>
+                    <option value="Aplicação de Medicamentos">Aplicação de Medicamentos - R$100</option>
+                    <option value="Cuidados com Idosos e Crianças">Cuidados com Idosos e Crianças</option>
+                    <option value="Doula">Doula</option>
+                    <option value="SPA dos Pés">SPA dos Pés - R$80</option>
+                    <option value="Massoterapias">Massoterapias - R$150</option>
+                    <option value="Quiropraxia">Quiropraxia - R$200</option>
+                </select>
+                
+                <div id="cuidadosOptions" style="display: none;">
+                    <label for="careHours">Número de horas:</label>
+                    <select id="careHours" name="careHours" onchange="updatePrice()">
+                        <option value="70">1 Hora - R$70</option>
+                        <option value="300">12 Horas - R$300</option>
+                    </select>
+                </div>
+                
+                <label for="name">Nome:</label>
+                <input type="text" id="name" required>
+                
+                <label for="date">Data:</label>
+                <input type="date" id="date" required>
+                
+                <label for="time">Horário:</label>
+                <input type="time" id="time" required>
+                
+                <label for="healthIssues">Problemas de saúde:</label>
+                <textarea id="healthIssues" required></textarea>
+                
+                <label for="medication">Toma algum medicamento?</label>
+                <textarea id="medication" required></textarea>
+                
+                <label>Atendimento:</label>
+                <div>
+                    <input type="radio" id="attendSpace" name="attendType" value="Meu espaço" required>
+                    <label for="attendSpace">Meu espaço</label>
+                </div>
+                <div>
+                    <input type="radio" id="attendResidence" name="attendType" value="Sua residência">
+                    <label for="attendResidence">Sua residência</label>
+                </div>
+                <div>
+                    <input type="radio" id="attendOpen" name="attendType" value="A combinar">
+                    <label for="attendOpen">A combinar</label>
+                </div>
+                
+                <label for="totalPrice">Valor Total:</label>
+                <input type="text" id="totalPrice" readonly>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 SPA Terapêutica. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
